@@ -14,7 +14,7 @@ const Deskmat = () => {
   }
 
   const getDeskmatdata = async ()=>{
-    const data = await axios.get('https://ecom-2jj8.onrender.com');
+    const data = await axios.get('https://ecom-2jj8.onrender.com/matOverall');
     setvalue(data.data);
   }
 
