@@ -44,7 +44,7 @@ const DeskmatDetail = () => {
   };
 
   const getMatDetails = async (id) => {
-    const data = await axios.get(`http://localhost:3000/matSpecific/${id}`, {
+    const data = await axios.get(`https://ecom-2jj8.onrender.com/matSpecific/${id}`, {
       withCredentials: true,
     });
     setvalue(data.data);
