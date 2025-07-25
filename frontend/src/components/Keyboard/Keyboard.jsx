@@ -10,7 +10,7 @@ const Keyboard = () => {
   const Navigate = useNavigate();
   
   const getKeyboarddata = async ()=>{
-    const data = await axios.get('http://localhost:3000/keyOverall');
+    const data = await axios.get('https://ecom-2jj8.onrender.com/keyOverall');
     setvalue(data.data);
     console.log(data.data);
   }
