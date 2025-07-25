@@ -14,7 +14,7 @@ const Mouse = () => {
   }
 
   const getMousedata = async ()=>{
-    const data = await axios.get('http://localhost:3000/mouseOverall');
+    const data = await axios.get('https://ecom-2jj8.onrender.com/mouseOverall');
     setvalue(data.data);
   }
 
