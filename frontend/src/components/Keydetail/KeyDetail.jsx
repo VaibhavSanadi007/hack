@@ -43,7 +43,7 @@ const KeyDetail = () => {
   };
 
   const getKeyDetails = async (id) => {
-    const data = await axios.get(`http://localhost:3000/keySpecific/${id}`, {
+    const data = await axios.get(`https://ecom-2jj8.onrender.com/keySpecific/${id}`, {
       withCredentials: true,
     });
     setvalue(data.data);
