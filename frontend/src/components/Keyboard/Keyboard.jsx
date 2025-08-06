@@ -10,7 +10,7 @@ const Keyboard = () => {
   const Navigate = useNavigate();
   const lenis = useLenis();
   const getKeyboarddata = async ()=>{
-    const data = await axios.get('http://localhost:3000/keyOverall');
+    const data = await axios.get('https://ecom-2jj8.onrender.com/keyOverall');
     setvalue(data.data);
   }
 
@@ -47,4 +47,8 @@ const Keyboard = () => {
         </>
   )
 }
+<<<<<<< HEAD
 export default Keyboard
+=======
+export default Transition(Keyboard)
+>>>>>>> a8cdf79d9bcde12a94d02164cb5898a6a2fc8dc6

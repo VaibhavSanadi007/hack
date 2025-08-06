@@ -44,7 +44,7 @@ const MouseDetail = () => {
   };
 
   const getMouseDetails = async (id) => {
-    const data = await axios.get(`http://localhost:3000/mouseSpecific/${id}`, {
+    const data = await axios.get(`https://ecom-2jj8.onrender.com/mouseSpecific/${id}`, {
       withCredentials: true,
     });
     setvalue(data.data);

@@ -15,7 +15,7 @@ const Deskmat = () => {
   }
 
   const getDeskmatdata = async ()=>{
-    const data = await axios.get('http://localhost:3000/matOverall');
+    const data = await axios.get('https://ecom-2jj8.onrender.com/matOverall');
     setvalue(data.data);
   }
 
@@ -46,4 +46,8 @@ const Deskmat = () => {
     </>
   )
 }
+<<<<<<< HEAD
 export default Deskmat
+=======
+export default Transition(Deskmat)
+>>>>>>> a8cdf79d9bcde12a94d02164cb5898a6a2fc8dc6

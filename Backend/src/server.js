@@ -9,7 +9,7 @@ import keyRouter from './routes/KeyboardRoute.js';
 import matRouter from './routes/matRoute.js';
 
 app.use(cors({
-    origin:"http://localhost:5173", //url change karna hoga
+    origin:"http://localhost:5173",
     credentials:true,
   }))
 

@@ -14,7 +14,7 @@ const Mouse = () => {
   }
 
   const getMousedata = async ()=>{
-    const data = await axios.get('http://localhost:3000/mouseOverall');
+    const data = await axios.get('https://ecom-2jj8.onrender.com/mouseOverall');
     setvalue(data.data);
   }
 
@@ -45,4 +45,8 @@ const Mouse = () => {
     </>
   )
 }
+<<<<<<< HEAD
 export default Mouse
+=======
+export default Transition(Mouse)
+>>>>>>> a8cdf79d9bcde12a94d02164cb5898a6a2fc8dc6
