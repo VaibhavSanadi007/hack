@@ -1,22 +1,23 @@
-import Transition from '../Transition/Transition.jsx'
 import BasicRating from '../Rating/BasicRating.jsx'
 import NativeSelectDemo from '../Select/NativeSelectDemo.jsx'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
+import { useLenis } from 'lenis/react';
 const Keyboard = () => {
   const [value,setvalue] = useState(null);
   const Navigate = useNavigate();
-  
+  const lenis = useLenis();
   const getKeyboarddata = async ()=>{
     const data = await axios.get('http://localhost:3000/keyOverall');
     setvalue(data.data);
-    console.log(data.data);
   }
 
   useEffect(()=>{
     getKeyboarddata();
+    lenis?.scrollTo(0);
+
   },[])
 
   const handlekeynav = (id)=>{
@@ -46,4 +47,4 @@ const Keyboard = () => {
         </>
   )
 }
-export default Transition(Keyboard)
+export default Keyboard

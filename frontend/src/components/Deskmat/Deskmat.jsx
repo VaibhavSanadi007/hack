@@ -1,13 +1,14 @@
-import Transition from '../Transition/Transition.jsx'
 import BasicRating from '../Rating/BasicRating.jsx'
 import NativeSelectDemo from '../Select/NativeSelectDemo.jsx'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
+import { useLenis } from 'lenis/react';
 const Deskmat = () => {
   const [value,setvalue] = useState(null);
   const Navigate = useNavigate();
+  const lenis = useLenis();
 
   const handleMatnav = (id)=>{
     Navigate(`/matdetail/${id}`)
@@ -20,6 +21,7 @@ const Deskmat = () => {
 
   useEffect(()=>{
     getDeskmatdata();
+    lenis.scrollTo(0);
   },[])
 
   return (
@@ -44,4 +46,4 @@ const Deskmat = () => {
     </>
   )
 }
-export default Transition(Deskmat)
+export default Deskmat

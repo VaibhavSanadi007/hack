@@ -11,17 +11,6 @@ import Footer from "./components/Footer/Footer";
 
 const App = () => {
 
-const lenis = useLenis(); 
-// const location = useLocation();
-    
-//   useEffect(() => {
-//     if (lenis) {
-//       lenis.stop();
-//       requestAnimationFrame(() => lenis.start());
-//       lenis.scrollTo(0, { immediate: true });
-//     }
-//   }, [location.pathname, lenis]);
-
   return (
     <>
     <ReactLenis root   options={{
@@ -31,7 +20,7 @@ const lenis = useLenis();
         smoothTouch: true  
       }} >
 
-    <div className=" min-h-screen  w-full archia-font px-5 text-white">
+    <div className=" min-h-screen  w-full archia-font px-5 text-white overflow-hidden hide-scrollbar" >
     <Navbar/>
     <AnimatePresence mode="wait">
      <MainRoutes/>

@@ -1,14 +1,14 @@
-import Transition from '../Transition/Transition.jsx'
 import BasicRating from '../Rating/BasicRating.jsx'
 import NativeSelectDemo from '../Select/NativeSelectDemo.jsx'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
+import { useLenis } from 'lenis/react';
 const Mouse = () => {
   const [value,setvalue] = useState(null);
   const Navigate = useNavigate();
-
+  const lenis = useLenis();
   const handlemousenav = (id)=>{
     Navigate(`/mousedetail/${id}`)
   }
@@ -20,6 +20,7 @@ const Mouse = () => {
 
   useEffect(()=>{
     getMousedata();
+    lenis?.scrollTo(0);
   },[])
 
   return (
@@ -44,4 +45,4 @@ const Mouse = () => {
     </>
   )
 }
-export default Transition(Mouse)
+export default Mouse
