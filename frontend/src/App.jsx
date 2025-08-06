@@ -1,11 +1,8 @@
 import MainRoutes from "./mainRoutes/MainRoutes"
 import './App.css'
 import Navbar from "./components/Navbar/Navbar"
-import { ReactLenis, useLenis } from 'lenis/react'
+import { ReactLenis} from 'lenis/react'
 import { AnimatePresence } from "motion/react";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import Button from "@mui/material/Button";
 import Footer from "./components/Footer/Footer";
 
 

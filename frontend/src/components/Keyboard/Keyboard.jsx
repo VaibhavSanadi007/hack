@@ -47,8 +47,6 @@ const Keyboard = () => {
         </>
   )
 }
-<<<<<<< HEAD
+
 export default Keyboard
-=======
-export default Transition(Keyboard)
->>>>>>> a8cdf79d9bcde12a94d02164cb5898a6a2fc8dc6
+

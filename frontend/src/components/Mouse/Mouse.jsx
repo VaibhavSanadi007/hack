@@ -45,8 +45,5 @@ const Mouse = () => {
     </>
   )
 }
-<<<<<<< HEAD
 export default Mouse
-=======
-export default Transition(Mouse)
->>>>>>> a8cdf79d9bcde12a94d02164cb5898a6a2fc8dc6
+

@@ -3,13 +3,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 import cors from 'cors';
 import dbconnect from './db/database.js';
-
 import MouseRouter from './routes/MouseRoute.js';
 import keyRouter from './routes/KeyboardRoute.js';
 import matRouter from './routes/matRoute.js';
 
+import 'dotenv/config';
+
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:process.env.URI,
     credentials:true,
   }))
 

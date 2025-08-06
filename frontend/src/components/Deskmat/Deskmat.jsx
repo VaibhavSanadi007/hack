@@ -46,8 +46,5 @@ const Deskmat = () => {
     </>
   )
 }
-<<<<<<< HEAD
 export default Deskmat
-=======
-export default Transition(Deskmat)
->>>>>>> a8cdf79d9bcde12a94d02164cb5898a6a2fc8dc6
+
