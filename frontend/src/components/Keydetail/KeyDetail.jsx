@@ -37,7 +37,7 @@ const KeyDetail = () => {
 
   const sliderRef = useRef(null);
   const { id } = useParams();
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
   const [likeflag, setlikeflag] = useState(false);
 
   const [value, setvalue] = useState(null);
@@ -60,7 +60,6 @@ const KeyDetail = () => {
     });
     setvalue(data.data);
   };
-  console.log(value);
 
   useEffect(() => {
     getKeyDetails(id);

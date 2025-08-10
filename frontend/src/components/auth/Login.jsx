@@ -11,8 +11,8 @@ const Login = () => {
   const [flag,setflag] = useState(true);
   const [firstname,setfirstname] = useState('');
   const [lastname,setlastname] = useState('');
-  const [email,setemail] = useState('vaibhav@gmail.com');
-  const [password,setpassword] = useState('vaibhav123');
+  const [email,setemail] = useState('admin@gmail.com');
+  const [password,setpassword] = useState('admin123');
   const dispatch = useDispatch();
   const handlesignIn = async (e)=>{
     e.preventDefault();
