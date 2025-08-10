@@ -1,49 +1,34 @@
 import mongoose from "mongoose";
 
 const matSchema = mongoose.Schema({
-  matname: {
+ name: {
     type: String,
   },
-  minPay: {
+  price: {
     type: Number,
   },
-  maxPay: {
-    type: Number,
-  },
-  matImg1: {
+  img1: {
     type: String,
   },
-  matImg2: {
+  img2: {
     type: String,
   },
-  matImg3: {
+  img3: {
     type: String,
   },
-  matImg4: {
+  img4: {
     type: String,
   },
-  matimg1otherVariant: {
+  descriptionImg1: {
     type: String,
   },
-  matimg2otherVariant: {
+   descriptionImg2: {
     type: String,
   },
-  matimg3otherVariant: {
+  descriptionImg3: {
     type: String,
   },
-  matimg4otherVariant: {
-    type: String,
-  },
-  DescriptionImg1: {
-    type: String,
-  },
-  DescriptionImg2: {
-    type: String,
-  },
-  DescriptionImg3: {
-    type: String,
-  },
-  DescriptionImg4: {
+  descriptionImg4: {
     type: String,
   }
 })

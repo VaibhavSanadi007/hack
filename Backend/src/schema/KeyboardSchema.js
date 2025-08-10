@@ -1,52 +1,34 @@
 import mongoose from "mongoose";
 
 const keyboardSchema = mongoose.Schema({
-  KeyboardEventname: {
+  name: {
     type: String,
   },
-  keyboarddpi: {
+  price: {
     type: Number,
   },
-  minPay: {
-    type: Number,
-  },
-  maxPay: {
-    type: Number,
-  },
-  keyboardImg1: {
+  img1: {
     type: String,
   },
-  keyboardImg2: {
+  img2: {
     type: String,
   },
-  keyboardImg3: {
+  img3: {
     type: String,
   },
-  keyboardImg4: {
+  img4: {
     type: String,
   },
-  keyboardimg1otherVariant: {
+  descriptionImg1: {
     type: String,
   },
-  keyboardimg2otherVariant: {
+   descriptionImg2: {
     type: String,
   },
-  keyboardimg3otherVariant: {
+  descriptionImg3: {
     type: String,
   },
-  keyboardimg4otherVariant: {
-    type: String,
-  },
-  DescriptionImg1: {
-    type: String,
-  },
-   DescriptionImg2: {
-    type: String,
-  },
-  DescriptionImg3: {
-    type: String,
-  },
-  DescriptionImg4: {
+  descriptionImg4: {
     type: String,
   }
 })

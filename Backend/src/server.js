@@ -6,18 +6,26 @@ import dbconnect from './db/database.js';
 import MouseRouter from './routes/MouseRoute.js';
 import keyRouter from './routes/KeyboardRoute.js';
 import matRouter from './routes/matRoute.js';
+import authRouter from './routes/Authroutes.js';
+import AdminRouter from './routes/AdminRoute.js';
+import cookie_parser from 'cookie-parser';
 
 import 'dotenv/config';
 
+app.use(cookie_parser());
 app.use(cors({
     origin:process.env.URI,
     credentials:true,
   }))
 
 app.use(express.json());
+
+
+app.use('/',authRouter);
 app.use('/',MouseRouter);
 app.use('/',keyRouter);
 app.use('/',matRouter);
+app.use('/',AdminRouter);
 
 dbconnect().then(()=>{
   console.log("db connect hogaya bhaisab");

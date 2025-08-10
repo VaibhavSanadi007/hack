@@ -5,7 +5,7 @@ import discord from '../../assets/icons8-discord-32.png';
 
 const Footer = () => {
   return (
-    <footer className=" text-neutral-400  py-8 ">
+    <footer className=" text-neutral-400  py-20 ">
   <div className="max-w-7xl mx-auto px-4">
     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 flex-grow">

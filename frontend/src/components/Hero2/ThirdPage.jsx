@@ -27,31 +27,30 @@ const ThirdPage = () => {
 
   return (
     <div className="h-full w-full flex items-center justify-center ">
-      <div className="flex xl:gap-15 ">
+      <div className="grid grid-cols-2  gap-5 md:grid-cols-4 xl:gap-15 ">
         <div
-          className="bg-neutral-900 xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5"
+          className="bg-neutral-900 p-10  xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5"
           onClick={() => goTop()}
         >
-          <img src={homepage} className="xl:h-1/2" />
+          <img src={homepage} className="xl:h-1/2 " />
         </div>
         <div
-          className="bg-neutral-900  xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5"
+          className="bg-neutral-900   xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5"
           onClick={() => mousenav()}
         >
           <img src={mouse3dlogo} />
         </div>
-        <div className="bg-neutral-900  xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5">
+        <div className="bg-neutral-900   xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5" onClick={() => keynav()}>
           <img
             src={keyboard3dlogo}
             className="xl:h-[70%]"
-            onClick={() => keynav()}
+            
           />
         </div>
-        <div className="bg-neutral-900  xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5">
+        <div className="bg-neutral-900  xl:h-50 xl:w-50 hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer rounded active:scale-100 flex items-center justify-center xl:p-5"  onClick={() => deskmatnav()} >
           <img
             src={deskmat3dlogo}
             className="xl:h-[60%]"
-            onClick={() => deskmatnav()}
           />
         </div>
       </div>

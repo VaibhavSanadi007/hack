@@ -5,6 +5,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { useLenis } from 'lenis/react';
+import { url } from '../../constant.js';
 const Deskmat = () => {
   const [value,setvalue] = useState(null);
   const Navigate = useNavigate();
@@ -15,13 +16,14 @@ const Deskmat = () => {
   }
 
   const getDeskmatdata = async ()=>{
-    const data = await axios.get('https://ecom-2jj8.onrender.com/matOverall');
+    const data = await axios.get(url+'/matOverall');
     setvalue(data.data);
   }
 
   useEffect(()=>{
     getDeskmatdata();
-    lenis.scrollTo(0);
+        lenis?.scrollTo(0);
+
   },[])
 
   return (
@@ -34,10 +36,10 @@ const Deskmat = () => {
        value && value.map((items,index)=>(
 
           <div key={index} className='w-full flex flex-col items-center justify-center gap-1 py-2 hover:border cursor-pointer active:scale-105 border border-neutral-900 p-5 rounded xl:gap-3 ' onClick={()=>handleMatnav(items._id)}>
-            <img className='rounded w-full xl:h-[70%] object-cover' src={items.matImg1} />
+            <img className='rounded w-full xl:h-[70%] object-cover' src={items.img1} />
             <BasicRating/>
-            <h1 className='w-full text-center '>{items.matname}</h1>
-            <h1 className='w-full text-center text-neutral-500 text-sm'>&#8377;{items.minPay}</h1>
+            <h1 className='w-full text-center '>{items.name}</h1>
+            <h1 className='w-full text-center text-neutral-500 text-sm'>&#8377;{items.price}</h1>
           </div>
         
         ))

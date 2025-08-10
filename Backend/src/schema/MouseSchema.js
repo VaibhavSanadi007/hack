@@ -1,52 +1,34 @@
 import mongoose from "mongoose";
 
 const mouseSchema = mongoose.Schema({
-  mousename: {
+ name: {
     type: String,
   },
-  mousedpi: {
+  price: {
     type: Number,
   },
-  minPay: {
-    type: Number,
-  },
-  maxPay: {
-    type: Number,
-  },
-  mouseImg1: {
+  img1: {
     type: String,
   },
-  mouseImg2: {
+  img2: {
     type: String,
   },
-  mouseImg3: {
+  img3: {
     type: String,
   },
-  mouseImg4: {
+  img4: {
     type: String,
   },
-  mouseimg1otherVariant: {
+  descriptionImg1: {
     type: String,
   },
-  mouseimg2otherVariant: {
+   descriptionImg2: {
     type: String,
   },
-  mouseimg3otherVariant: {
+  descriptionImg3: {
     type: String,
   },
-  mouseimg4otherVariant: {
-    type: String,
-  },
-  DescriptionImg1: {
-    type: String,
-  },
-  DescriptionImg2: {
-    type: String,
-  },
-  DescriptionImg3: {
-    type: String,
-  },
-  DescriptionImg4: {
+  descriptionImg4: {
     type: String,
   }
 })

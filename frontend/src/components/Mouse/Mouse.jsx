@@ -5,6 +5,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import {  useNavigate } from 'react-router-dom'
 import { useLenis } from 'lenis/react';
+import { url } from '../../constant.js';
 const Mouse = () => {
   const [value,setvalue] = useState(null);
   const Navigate = useNavigate();
@@ -14,7 +15,7 @@ const Mouse = () => {
   }
 
   const getMousedata = async ()=>{
-    const data = await axios.get('https://ecom-2jj8.onrender.com/mouseOverall');
+    const data = await axios.get(url+'/mouseOverall');
     setvalue(data.data);
   }
 
@@ -32,11 +33,11 @@ const Mouse = () => {
       {
        value && value.map((items,index)=>(
 
-          <div key={index} className='w-full flex flex-col items-center justify-center gap-1 py-2 hover:border cursor-pointer active:scale-105 border border-neutral-900 p-5 rounded xl:gap-3 ' onClick={()=>handlemousenav(items._id)}>
-            <img className='rounded w-full xl:h-[70%] object-cover' src={items.mouseImg1} />
+          <div key={index} className='w-full flex flex-col items-center justify-center gap-1 py-2 hover:border cursor-pointer  border border-neutral-900 p-5 rounded xl:gap-3 ' >
+            <img className='rounded w-full xl:h-[70%] object-cover' src={items.img1} onClick={()=>handlemousenav(items._id)}/>
             <BasicRating/>
-            <h1 className='w-full text-center '>{items.mousename}</h1>
-            <h1 className='w-full text-center text-neutral-500 text-sm'>&#8377;{items.minPay}</h1>
+            <h1 className='w-full text-center '>{items.name}</h1>
+            <h1 className='w-full text-center text-neutral-500 text-sm'>&#8377;{items.price}</h1>
           </div>
         
         ))

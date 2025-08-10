@@ -1,12 +1,15 @@
 import { useState } from "react";
 import logo from "../../assets/MeckeysLogo.svg";
 import xlogo from "../../assets/icons8-x-32.png";
-import { delay, motion, stagger } from "motion/react";
-
+import { motion } from "motion/react";
+ import { useSelector } from 'react-redux';
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+  const userdata = useSelector((item)=>item.user.value);
+  
   const [flag, setflag] = useState(false);
 
   const Navigation = useNavigate();
@@ -29,12 +32,26 @@ const Navbar = () => {
     setflag(false);
   };
 
+  const handleaboutNav = () => {
+    Navigation("/about");
+    setflag(false);
+  };
+
+  const handlehomeNav = () => {
+    Navigation("/");
+    setflag(false);
+  };
+
+  const handleCartNav = () => {
+    Navigation("/cart");
+    setflag(false);
+  };
+
   const variant = {
     Listart: {
       y: "-100%",
       transition: {
         duration: 1,
-        // delay: 1.5,
         when: "afterChildren",
       },
     },
@@ -112,16 +129,12 @@ const Navbar = () => {
             onClick={() => location.reload()}
           />
           <div className="flex gap-10 ">
-            <div className="rounded cursor-pointer py-1 uppercase  group relative active:scale-90 z-1 nav-text-mobile">
-              About
-              <span className="pointer-events-none absolute  left-0 -bottom-0 h-[1%] bg-white block max-w-0 w-full transition-all duration-300 group-hover:max-w-full"></span>
-            </div>
-
+           
             <div
               className="rounded cursor-pointer py-1 uppercase  group relative active:scale-90 nav-text-mobile"
               onClick={handleloginNav}
             >
-              Login
+              {userdata.firstname ||  "Login"}
               <span className="pointer-events-none absolute  left-0 -bottom-0 h-[1%] bg-white block max-w-0 w-full transition-all duration-300 group-hover:max-w-full"></span>
             </div>
 
@@ -140,7 +153,7 @@ const Navbar = () => {
         animate={flag ? "Liend" : "Listart"}
         initial={"Listart"}
         variants={variant}
-        className={`anime-navbar  w-[55%] h-[60%] z-3  text-black   absolute md:right-0 md:top-0 xl:right-0 xl:top-0  bg-[#FFFFFF] `}
+        className={`anime-navbar  w-[55%] h-[60%]  z-3  text-black   absolute md:right-0 md:top-0 xl:right-0 xl:top-0  bg-[#FFFFFF] `}
       >
         <nav className="  md:h-[18%] md:px-10  xl:h-[19%] xl:w-full  xl:px-16 flex justify-between items-center   ">
           <motion.div
@@ -206,11 +219,12 @@ const Navbar = () => {
           initial={"Listart"}
           animate={flag ? "Liend" : "Listart"}
           variants={childVariant}
-          className="absolute  md:top-[50%] lg:top-[40%] top-[50%] left-[65%] flex flex-col  text-[1.1rem] text-neutral-400 uppercase  archia-font group "
+          className="absolute  md:top-[45%] lg:top-[25%] xl:top-[30%] top-[50%] left-[65%] flex flex-col  text-[1.1rem] text-neutral-400 uppercase  archia-font group "
         >
           <motion.li
             variants={itemVariant}
             className="group-hover:text-neutral-300 hover:!text-neutral-900   text-neutral-950 duration-300 cursor-pointer  py-1.5"
+            onClick={handlehomeNav}
           >
             Home
           </motion.li>
@@ -234,6 +248,20 @@ const Navbar = () => {
             onClick={handledeskmatNavigation}
           >
             Deskmat
+          </motion.li>
+          <motion.li
+            variants={itemVariant}
+            className="group-hover:text-neutral-300 hover:!text-neutral-900  duration-300 cursor-pointer py-1.5"
+            onClick={handleCartNav}
+          >
+            Cart
+          </motion.li>
+          <motion.li
+            variants={itemVariant}
+            className="group-hover:text-neutral-300 hover:!text-neutral-900  duration-300 cursor-pointer py-1.5"
+            onClick={handleaboutNav}
+          >
+            About
           </motion.li>
           <motion.li
             variants={itemVariant}

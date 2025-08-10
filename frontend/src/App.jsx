@@ -17,7 +17,7 @@ const App = () => {
         smoothTouch: true  
       }} >
 
-    <div className=" min-h-screen  w-full archia-font px-5 text-white overflow-hidden hide-scrollbar" >
+    <div className=" min-h-screen  w-full archia-font md:px-10 px-5 text-white overflow-hidden hide-scrollbar" >
     <Navbar/>
     <AnimatePresence mode="wait">
      <MainRoutes/>

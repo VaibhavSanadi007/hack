@@ -10,8 +10,31 @@ import logo2 from "../../assets/cod.png";
 import logo3 from "../../assets/warranty.png";
 import logo4 from "../../assets/securepay.png";
 import logo5 from "../../assets/shipping.png";
+import { url } from "../../constant.js";
+
+
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, updateItem } from "../../store/CartSlice";
 
 const KeyDetail = () => {
+
+
+  const dispatch = useDispatch();
+
+  const cartdata = useSelector((value) => value.cart.value);
+
+  const handleCart = () => {
+   let isItemInCart = cartdata.find(item => item._id === value._id );
+
+    if (isItemInCart) {
+      dispatch(updateItem(value));
+      setCount(prev=>prev+1);
+    } else {
+      dispatch(addItem({...value,counter:count}));
+      setCount(prev=>prev+1);
+    }
+  };
+
   const sliderRef = useRef(null);
   const { id } = useParams();
   const [count, setCount] = useState(1);
@@ -30,20 +53,9 @@ const KeyDetail = () => {
     slidesToScroll: 1,
   };
 
-  const decrement = () => {
-    if (value == 0) {
-      setCount(0);
-      return;
-    }
-    setCount((prev) => (prev > 1 ? prev - 1 : 1));
-  };
-
-  const increment = () => {
-    setCount((prev) => prev + 1);
-  };
-
+  
   const getKeyDetails = async (id) => {
-    const data = await axios.get(`https://ecom-2jj8.onrender.com/keySpecific/${id}`, {
+    const data = await axios.get(url+`/keySpecific/${id}`, {
       withCredentials: true,
     });
     setvalue(data.data);
@@ -64,8 +76,8 @@ const KeyDetail = () => {
               <div
                 className="h-70 lg:h-120 xl:h-100 w-full"
                 style={{
-                  backgroundImage: value?.keyboardImg1
-                    ? `url(${value.keyboardImg1})`
+                  backgroundImage: value?.img1
+                    ? `url(${value.img1})`
                     : undefined,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
@@ -77,8 +89,8 @@ const KeyDetail = () => {
               <div
                 className=" h-70 lg:h-120  xl:h-100 w-full"
                 style={{
-                  backgroundImage: value?.keyboardImg2
-                    ? `url(${value.keyboardImg2})`
+                  backgroundImage: value?.img2
+                    ? `url(${value.img2})`
                     : undefined,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
@@ -90,8 +102,8 @@ const KeyDetail = () => {
               <div
                 className="h-70 lg:h-120 xl:h-100 w-full"
                 style={{
-                  backgroundImage: value?.keyboardImg3
-                    ? `url(${value.keyboardImg3})`
+                  backgroundImage: value?.img3
+                    ? `url(${value.img3})`
                     : undefined,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
@@ -103,8 +115,8 @@ const KeyDetail = () => {
               <div
                 className="h-70 lg:h-120  xl:h-100 w-full"
                 style={{
-                  backgroundImage: value?.keyboardImg4
-                    ? `url(${value.keyboardImg4})`
+                  backgroundImage: value?.img4
+                    ? `url(${value.img4})`
                     : undefined,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
@@ -118,8 +130,8 @@ const KeyDetail = () => {
               onClick={() => goToSlide(0)}
               className={` px-5 py-10 lg:px-10 lg:py-10 cursor-pointer  xl:px-10 xl:py-10 rounded `}
               style={{
-                backgroundImage: value?.keyboardImg1
-                  ? `url(${value.keyboardImg1})`
+                backgroundImage: value?.img1
+                  ? `url(${value.img1})`
                   : undefined,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -129,8 +141,8 @@ const KeyDetail = () => {
               onClick={() => goToSlide(1)}
               className="px-5 py-10 lg:px-10 lg:py-10 cursor-pointer  xl:px-10 xl:py-10 rounded"
               style={{
-                backgroundImage: value?.keyboardImg2
-                  ? `url(${value.keyboardImg2})`
+                backgroundImage: value?.img2
+                  ? `url(${value.img2})`
                   : undefined,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -140,8 +152,8 @@ const KeyDetail = () => {
               onClick={() => goToSlide(2)}
               className="px-5 py-10 lg:px-10 lg:py-10 cursor-pointer 0 xl:px-10 xl:py-10 rounded"
               style={{
-                backgroundImage: value?.keyboardImg3
-                  ? `url(${value.keyboardImg3})`
+                backgroundImage: value?.img3
+                  ? `url(${value.img3})`
                   : undefined,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -151,8 +163,8 @@ const KeyDetail = () => {
               onClick={() => goToSlide(3)}
               className="px-5 py-10 lg:px-10 lg:py-10 cursor-pointer  xl:px-10 xl:py-10 rounded"
               style={{
-                backgroundImage: value?.keyboardImg4
-                  ? `url(${value.keyboardImg4})`
+                backgroundImage: value?.img4
+                  ? `url(${value.img4})`
                   : undefined,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -162,26 +174,26 @@ const KeyDetail = () => {
         </div>
         <div id="right-side-div" className="xl:flex xl:flex-col xl:gap-3.5">
           <h1 className="uppercase text-xl py-2 xl:text-5xl">
-            {value?.KeyboardEventname}
+            {value?.name}
           </h1>
         <h5>Mechanincal Keyboard</h5>
           <h6 className="text-cyan-800">in Stock</h6>
-          <h1>&#8377; {value?.minPay}</h1>
+          <h1>&#8377; {value?.price}</h1>
           <div className="counter">
             <div className="flex flex-wrap items-center gap-3 md:gap-4">
               <div className="flex border border-neutral-800 rounded-sm text-lg font-medium">
-                <button className="px-3 py-2  transition " onClick={decrement}>
-                  -
-                </button>
+               
                 <span className="px-4 py-2 border-l border-r r border-neutral-800 select-none">
                   {count}
                 </span>
-                <button className="px-3 py-2  transition" onClick={increment}>
-                  +
-                </button>
+              
               </div>
 
-              <button className="flex-1 md:flex-none bg-black text-white font-semibold px-6 py-2 rounded-sm hover:bg-gray-800  text-center active:scale-95">
+          
+              <button
+                className="flex-1 md:flex-none bg-neutral-900 text-white font-semibold px-6 py-2 rounded-sm   text-center active:scale-95"
+                onClick={handleCart}
+              >
                 Add to cart
               </button>
 
@@ -274,10 +286,10 @@ const KeyDetail = () => {
         </ul>
       </div>
       <div className="descriptionImagekadiv w-full  flex flex-col items-center">
-        <img src={value?.DescriptionImg1} className="w-[90%]" />
-        <img src={value?.DescriptionImg2} className="w-[90%]" />
-        <img src={value?.DescriptionImg3} className="w-[90%]" />
-        <img src={value?.DescriptionImg4} className="w-[90%]" />
+        <img src={value?.descriptionImg1} className="w-[90%]" />
+        <img src={value?.descriptionImg2} className="w-[90%]" />
+        <img src={value?.descriptionImg3} className="w-[90%]" />
+        <img src={value?.descriptionImg4} className="w-[90%]" />
       </div>
     </>
   );
