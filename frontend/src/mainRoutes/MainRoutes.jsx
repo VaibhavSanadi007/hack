@@ -15,6 +15,7 @@ const MateDetailLazy = lazy(() =>
 
 import Login from "../components/auth/Login";
 import Cart from "../components/cart/Cart";
+import Shimmer from "../components/Shimmer";
 const MainRoutes = () => {
   return (
     <Suspense fallback={<div>loading...</div>}>
@@ -23,15 +24,29 @@ const MainRoutes = () => {
         <Route
           path="/mouse"
           element={
-            <Suspense fallback={<div>Mouse lazy loading...</div>}>
+            <Suspense fallback={<Shimmer />}>
               <MouseLazy />
             </Suspense>
           }
         />
         <Route path="/mousedetail/:id" element={<MouseDetailLazy />} />
-        <Route path="/keyboard" element={<KeyLazy />} />
+        <Route
+          path="/keyboard"
+          element={
+            <Suspense fallback={<Shimmer />}>
+              <KeyLazy />
+            </Suspense>
+          }
+        />
         <Route path="/keydetail/:id" element={<KeyDetailLazy />} />
-        <Route path="/deskmat" element={<MatLazy />} />
+        <Route
+          path="/deskmat"
+          element={
+            <Suspense fallback={<Shimmer />}>
+              <MatLazy />
+            </Suspense>
+          }
+        />
         <Route path="/matdetail/:id" element={<MateDetailLazy />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
