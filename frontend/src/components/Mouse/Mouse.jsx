@@ -6,6 +6,7 @@ import axios from 'axios';
 import {  useNavigate } from 'react-router-dom'
 import { useLenis } from 'lenis/react';
 import { url } from '../../constant.js';
+import Shimmer from '../Shimmer.jsx';
 const Mouse = () => {
   const [value,setvalue] = useState(null);
   const Navigate = useNavigate();
@@ -23,6 +24,10 @@ const Mouse = () => {
     getMousedata();
     lenis?.scrollTo(0);
   },[])
+
+  if(!value){
+    return <Shimmer/>
+  }
 
   return (
     <>
