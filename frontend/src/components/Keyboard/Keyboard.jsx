@@ -26,6 +26,10 @@ const Keyboard = () => {
 
   }
 
+   if(!value){
+    return <Shimmer/>
+  }
+
   return (
     <>
         <nav className=''>

@@ -26,6 +26,10 @@ const Deskmat = () => {
 
   },[])
 
+   if(!value){
+    return <Shimmer/>
+  }
+
   return (
     <>
     <nav className=''>
